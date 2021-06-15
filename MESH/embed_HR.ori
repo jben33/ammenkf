@@ -1,0 +1,56 @@
+% Takes ensemble members as input
+% Returns ensemble embedded in R^(2N)
+
+function embedded = embed_HR(ensemble)
+
+global left right d1
+global N
+
+Ne = size(ensemble,1);
+embedded = nan(Ne,2*N);
+
+for i=1:Ne
+  em = ensemble{i};
+  L = length(em)/2;
+  inc = left;
+  % Loop through ensemble mesh points, find them in state space
+  for j=1:L
+      loc = em(L+j);                      % current ensemble mesh point
+      k = 1;                              % iterator
+      while(loc > left + k*d1)
+          k = k+1;
+      end
+      inc = left + (k-1)*d1;
+      embedded(i,N+k) = inc;
+  end
+  indices = ~isnan(embedded(i,N+1:2*N));
+  embedded(i,indices) = em(1:L);
+end
+
+
+
+%%% function embedded = embed_HR(ensemble)
+%%%
+%%% global left right d1
+%%% global N
+%%%
+%%% Ne = size(ensemble,1);
+%%% embedded = nan(Ne,2*N);
+%%%
+%%% for i=1:Ne
+%%%   em = ensemble{i};
+%%%   L = length(em)/2;
+%%%   inc = left;
+%%%   % Loop through ensemble mesh points, find them in state space
+%%%   for j=1:L
+%%%       loc = em(L+j);                      % current ensemble mesh point
+%%%       k = 1;                              % iterator
+%%%       while(loc > left+k*d1)
+%%%           k = k+1;
+%%%       end
+%%%       inc = left + (k-1)*d1;
+%%%       embedded(i,N+k) = inc;
+%%%   end
+%%%   indices = ~isnan(embedded(i,N+1:2*N));
+%%%   embedded(i,indices) = em(1:L);
+%%% end

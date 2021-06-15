@@ -1,0 +1,38 @@
+an_ensemble = A_full;
+Nup=size(A_full,2);%N has been replaced with this since analysis mesh changes dimension
+if(strcmp(resol, 'HR') || strcmp(resol,'LR'))
+    Nup=N;
+end
+%an_means(1,:) = ens_mean(A_full);
+an_means{1}=ens_mean(A_full);
+A = A_full(:,1:Nup)';
+
+% if(strcmp(resol, 'HR') || strcmp(resol, 'LR'))
+% an_means{1} = ens_mean(A_full(:,1:Nup/2));
+% A = A_full(:,1:Nup/2)'; 
+% else
+% an_means{1} = ens_mean(A_full);
+% A = A_full(:,1:Nup)'; 
+% end;
+
+%A_bar = repmat(an_means(1,1:Nup),N_ens,1)';
+A_bar = repmat(an_means{1}(1:Nup),N_ens,1)';
+
+A_prime = 1/sqrt(N_ens-1)*(A-A_bar);
+if(strcmp(resol, 'HRA') && divtrue==0)
+        ifm.stat=[1:Nup];
+elseif(strcmp(resol, 'HRA') && divtrue==1)        
+        ifm.stat=[1:Nup/2];
+elseif(strcmp(resol, 'HR'));
+       ifm.stat=[1:Nup/2];
+end
+
+if(divtrue==0)
+Adiag = A_full(:,ifm.stat)';
+%A_bar_diag = repmat(an_means(1,ifm.stat),N_ens,1)';
+A_bar_diag = repmat(an_means{1}(ifm.stat),N_ens,1)';
+A_prime_diag = 1/sqrt(N_ens-1)*(Adiag-A_bar_diag);
+an_cov = A_prime_diag*A_prime_diag';
+an_cov_trace(1) = sum(diag(an_cov))/length(ifm.stat);
+elseif(divtrue==1)
+    

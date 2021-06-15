@@ -1,0 +1,30 @@
+%idx=kmeans((fc{1:30}(1:140/2))', 65);
+eml=0;
+clear X
+clear L
+L=0
+for i=1:30
+    emf=length(fc{i}/2)
+    X(eml+1:eml+emf,1)=(fc{i}(1:length(fc{i}/2)));
+    eml=length(X);
+end
+length(X)
+for i=1:30
+    l=length(fc{i});
+    L=l+L;
+end
+L
+
+idx=kmeans(X,130/2);
+    
+% for i=1:length(idx)
+%     plot(fc{1}(idx==i),ones(1,length(fc{1}(idx==i))),'*')
+%     text(fc{1}(idx==i),ones(1,length(fc{1}(idx==i))),num2str(i));
+%     hold on
+% end
+
+% for i=1:length(idx)
+%     plot(X(idx==i),ones(1,length(X(idx==i))),'*')
+%     text(X(idx==i),ones(1,length(X(idx==i))),num2str(i));
+%     hold on
+% end

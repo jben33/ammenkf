@@ -1,0 +1,21 @@
+n=50; %number of samples
+p=3; %number of paramaters
+
+%LHS(1) inflation factor
+%LHS(2) jitter
+%LHS(3) observation error
+LHS=lhsdesign(n,p);
+
+LHS(:,1)=1.6*LHS(:,1);
+LHS(:,2)=0.5*LHS(:,2);
+LHS(:,3)=0.001+0.01*LHS(:,3);
+%LHS(4) ensemble size
+LHS(:,4)=10+randperm(80,50);
+%LHS(5) inital mesh size
+d1=0.01;
+d2=2*d1;
+L=1;
+maxinitmesh=length(0:d1:L)-1;
+mininitmesh=length(0:d2:L)-1;
+
+LHS(:,5)=mininitmesh+randperm(maxinitmesh-mininitmesh,50)

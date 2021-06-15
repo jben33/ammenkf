@@ -1,0 +1,15 @@
+teidx=kmeans(X(em_idx(29,1):em_idx(29,2)),130/2)
+ for i=1:length(teidx)
+    plot(X(teidx==i),ones(1,length(X(teidx==i))),'*')
+    text(X(teidx==i),ones(1,length(X(teidx==i))),num2str(i));
+    hold on
+end
+%plot(X(em_idx(29,1):em_idx(29,2)),ones(1,em_idx(29,2)-em_idx(29,1)+1),'o')
+%text(X(idx==i),ones(1,length(X(idx==i))),num2str(i));
+% wtf=rand(1,130)';
+% teidx=kmeans(wtf,56);
+%   for i=1:length(teidx)
+%     plot(wtf(teidx==i),ones(1,length(wtf(teidx==i))),'*')
+%     text(wtf(teidx==i),ones(1,length(wtf(teidx==i))),num2str(i));
+%     hold on
+% end

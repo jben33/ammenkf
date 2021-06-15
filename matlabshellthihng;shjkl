@@ -1,0 +1,8 @@
+% 
+% 
+% for ll=1:5:145
+%     strcat('mkdir',{' '},'../LHS_WorkerForParams',num2str(ll),'_',num2str(ll+5));
+%     run
+% end
+
+

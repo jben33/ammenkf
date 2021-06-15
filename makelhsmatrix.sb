@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#SBATCH -p general
+#SBATCH -N 1
+#SBATCH -n 1
+#SBATCH --mem=1g
+#SBATCH -t 5-00:00:00
+
+module add matlab
+%matlab -nodesktop -nosplash -singleCompThread -r MAKELHS -logfile singlerun.out
+matlab -nodesktop -nosplash -singleCompThread -r MakeRegularGridWithExperiment -logfile singlerun.out
+

@@ -1,0 +1,28 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+Experiment type: inf_fac 
+
+ensparam =
+
+    1.2000    1.3000    1.5000    1.6000    1.8000    1.9000
+
+--------------------------------------
+-  Started on 23-Feb-2020 at 17:44:02 
+running AMM31 using KSM HRA case with EUL observations 
+loaded parameters
+experiment with inflation factor... 
+initial mesh size: 80 
+observation error: 0.636804 
+Ensemble size    : 40 
+Inflation factor : 1.200000 
+generated the truth
+generated the observations
+Refrence mesh resolution HRA 
