@@ -32,7 +32,7 @@ if (strcmp(model,'BGM'))
    inf_fac = 1.0;
    init_emesh_size = 70;
    fprintf('experiment with ensemble size... \n');
-   jitter=0;
+   jitter=0.01; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   elseif (strcmp(etype,'inf_fac'))
    N_ens   = 30;
    init_emesh_size = 70;
@@ -108,7 +108,7 @@ elseif (strcmp(model,'KSM'))
    inf_fac = 1.0;
    init_emesh_size = 80;
    fprintf('experiment with ensemble size... \n');
-   jitter=0;
+   jitter=0.5; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   elseif (strcmp(etype,'inf_fac'))
    N_ens   = 40;
    inf_fac = xind;
@@ -151,10 +151,11 @@ elseif (strcmp(model,'KSM'))
     init_emesh_size=70;
    obs_var=xind(3)^2;
     fprintf('experiment finding optimal jitter and inflation for another paramater LHS \n');
-   else
+   
+  else
    N_ens   = 40;
-   if (strcmp(resol,'HRA')); inf_fac = 1.2; end
-   if (strcmp(resol,'HR')); inf_fac = 1.2; end
+   if (strcmp(resol,'HRA')); inf_fac = 0.6; end
+   if (strcmp(resol,'HR')); inf_fac = 0.6; end
    if (strcmp(resol,'LR')); inf_fac = 1.3; end
    if (strcmp(resol,'HRA')); init_emesh_size = 80; end
    if (strcmp(resol,'HR')); init_emesh_size = 80; end
