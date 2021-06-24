@@ -4,7 +4,7 @@
 
 global model resol da_tag expno etype otype
 
-swid = [ 0 0 0 0; 0 0 0 1]; % switch for each set of experiments
+swid = [ 0 1 0 0; 0 0 0 0]; % switch for each set of experiments
 % swid == 1 to run the below experiments
 % swid(1,1) BGM for DA-free run
 % swid(1,2) BGM for sensitivity analysis
@@ -14,7 +14,7 @@ swid = [ 0 0 0 0; 0 0 0 1]; % switch for each set of experiments
 % swid(2,2) KSM for sensitivity analysis
 % swid(2,3) KSM for DA run using eulerian obs
 % swid(2,4) KSM for DA run using lagrangian obs
-exid = [0 0 0 0 0 0 0 0]; % switch for each sensitivity experiment
+exid = [0 0 0 0 0 0 0 1]; % switch for each sensitivity experiment
 % exid(1) ensemble size
 % exid(2) inflation factor
 % exid(3) observational error
@@ -45,7 +45,7 @@ end
   % call plot_multi_ens for diagnostics
 if (swid(1,2) ~= 0)
   if (exid(1) ~= 0)
-    otype='EUL';
+    otype='LAG';
     %  ensemble size
     expno  = '51' ; model  = 'BGM'; da_tag =     2;
 
@@ -180,7 +180,7 @@ end
      
    if (exid(8)~= 0)
     %everything
-    otype='EUL';
+    otype='LAG';
     expno  = '51' ; model  = 'BGM'; da_tag =     2;
    
     etype  = 'inflation_jitter_other1d';

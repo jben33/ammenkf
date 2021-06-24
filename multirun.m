@@ -120,7 +120,7 @@ for kk = 1:en_size
  xind(1) = ensparam(1,kk)
  xind(2) =ensparam(2,kk)
  run_AMMEnKF
-  insize=length(da_times);
+ insize=length(da_times);
 
   %ststemp(kk).(resol) = resol;
   %ststemp2(kk).(resol)  = [xind(1) xind(2)];

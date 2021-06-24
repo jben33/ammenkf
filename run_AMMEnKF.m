@@ -81,11 +81,11 @@ if (strcmp(model,'BGM'))
   elseif (strcmp(etype,'inflation_jitter_other1d'))
    inf_fac=xind(1);
    jitter=xind(2);
-   %N_ens=xind(3);
-    N_ens=30;
-    init_emesh_size=70;
-   obs_var=xind(3)^2;
-    fprintf('experiment finding optimal jitter and inflation for another paramater LHS \n');
+   N_ens=xind(3);
+   %N_ens=30;
+   init_emesh_size=70;
+   obs_var=0.0001;
+   fprintf('experiment finding optimal jitter and inflation for another paramater LHS \n');
     
   else
    N_ens   = 30;
